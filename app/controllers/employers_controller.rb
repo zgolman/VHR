@@ -11,7 +11,7 @@ skip_before_filter :authorize
   def create
         @employer = Employer.new(params.require(:employer).permit(:pay_period, :income, :health_insurance, :benefits))
         if @employer.save
-            redirect_to user_path
+            redirect_to employers_path
         else
             render 'new'
         end
