@@ -1,0 +1,18 @@
+
+
+<h1> USER NAME </h1>
+
+<p> Below is the payment information for <%= @employer.pay_period %>
+
+    Income: <%= @employer.pay_period %>
+    Selected Health Insurance:  <%= @employer.health_insurance %>
+    Selected Benefits: <%= @employer.benefits %>
+	  
+
+
+
+    <%= link_to "Edit this entry!", edit_path(@employer) %>
+    <%= link_to "Delete this entry!", @employer, method: :delete, data: { confirm: 'Are you sure you want to delete it?' } %>
+    <%= link_to "Back to the list!", employers_path %>
+
+

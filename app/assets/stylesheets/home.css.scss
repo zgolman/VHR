@@ -1,0 +1,69 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.uber{
+	max-height: 40%;
+	margin-left: 27%;
+}
+
+.task{
+	height: 40%;
+	margin-left: 26.5%;
+}
+
+.ic{
+	max-height: 40%;
+	margin-left: 26.5%;
+}
+
+.carousel-inner{
+	background: grey;
+}
+
+.header{
+	background: #8496b4;
+	margin-top: -1.5%;
+
+}
+
+h5{
+	font-size: 72px;
+	position: relative;
+	color: white;
+	text-align: center;
+}
+
+h2{
+	font-size: 22px;
+	position: relative;
+	color: white;
+	text-align: center;
+	font-style: italic;
+}
+
+.creation{
+	float: left;
+	margin-left: 40%;
+	margin-top: 6%;
+}
+
+
+.signin{
+	float: right;
+	margin-right: 40%;
+	margin-top: 6%;
+}
+
+.bottom{
+	text-align:center;
+	font: 26px;
+	margin-bottom: 5%;
+	font-style: bold;
+}
+
+
+a:link {
+    color: red;
+}

@@ -1,0 +1,14 @@
+<h1> Add a Paystub!</h1>
+
+    <%= form_for @employer do |f| %>
+        Income: <%= f.text_field :income %>
+        Pay Period Start Date: <%= f.date_field :pay_period1 %>
+        Pay Period End Date: <%= f.date_field :pay_period2 %>
+
+        <%= f.submit "Add Paystub!" %>
+
+    <% end %>
+    
+    <%= link_to "Back to the list!", employers_path %>
+
+      

@@ -1,0 +1,18 @@
+   <h1> Edit an entry </h1>
+
+    <%= form_for @employer do |f| %>
+        Income: <%= f.text_field :income %>
+        Pay Period: <%= f.text_field :pay_period %>
+        Health Insurance: <%= f.text_field :health_insurance %>
+        Benefits: <%= f.text_field :benefits %>
+
+        <%= f.submit "Edit this entry!" %>
+
+    <% end %>
+
+    <%= link_to "Back to the list!", employers_path %>
+
+ 	
+		
+			
+    

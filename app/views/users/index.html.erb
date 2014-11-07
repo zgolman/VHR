@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div id="top">
+		  <div class="col-md-12">
+		  	<h1 class="user">Welcome <%= current_user.first_name %>!</h1>
+		  		<div class="link">
+		  		<%= link_to "Add New Paystub", new_path %> 
+		  		</div>
+		  </div>
+		</div>
+	</div>
+
+	<div class="row"> 
+		<div id="content">
+		  <div class="col-md-12">
+			<h1 class="user2">Benefit's History</h1>
+			<ul>
+			<% @user.each do |e| %>
+			<li> 
+			 Income	<%= e.income  %> 
+			 Pay Period Start Date	<%= e.pay_period1 %> 
+			 Pay Period	End Date <%= e.pay_period2 %> 
+			 
+			</li
+			<%= link_to "More details!", employer_path(e) %> 
+	    	 <% end %>
+			</ul>
+		  </div>
+		</div>
+	</div>
+</div>
