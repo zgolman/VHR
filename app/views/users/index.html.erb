@@ -2,7 +2,7 @@
 	<div class="row">
 		<div id="top">
 		  <div class="col-md-12">
-		  	<h1 class="user">Welcome <%= current_user.first_name %>!</h1>
+		  	<h1 class="user">Welcome <%= user.first_name %>!</h1>
 		  		<div class="link">
 		  		<%= link_to "Add New Paystub", new_path %> 
 		  		</div>
@@ -22,7 +22,7 @@
 			 Pay Period	End Date <%= e.pay_period2 %> 
 			 
 			</li
-			<%= link_to "More details!", employer_path(e) %> 
+			<%= link_to "More details!", paystub_path(e) %> 
 	    	 <% end %>
 			</ul>
 		  </div>

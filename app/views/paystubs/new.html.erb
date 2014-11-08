@@ -1,6 +1,7 @@
 <h1> Add a Paystub!</h1>
 
-    <%= form_for @employer do |f| %>
+    <%= form_for @paystub do |f| %>
+    	<%= hidden_field_tag :user_id, current_user.id%>
         Income: <%= f.text_field :income %>
         Pay Period Start Date: <%= f.date_field :pay_period1 %>
         Pay Period End Date: <%= f.date_field :pay_period2 %>
@@ -9,6 +10,6 @@
 
     <% end %>
     
-    <%= link_to "Back to the list!", employers_path %>
+    <%= link_to "Back to the list!", paystub_path %>
 
       

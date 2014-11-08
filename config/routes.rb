@@ -16,29 +16,29 @@ post 'users/' => 'users#create'
 
 get 'users/:id' => 'users#show', as: :user
 
-# get 'employers/:id/edit' => 'employers#edit', as: :edit
+# get 'paystubs/:id/edit' => 'paystubs#edit', as: :edit
 
-# patch 'employers/:id' => 'employers#update'
+# patch 'paystubs/:id' => 'paystubs#update'
 
-# delete 'employers/:id' => 'employers#destroy'
+# delete 'paystubs/:id' => 'paystubs#destroy'
 
 
 root 'home#index'
 
 
-get 'employers/' => 'employers#index', as: :employers
+get 'paystubs/' => 'paystubs#index', as: :paystubs
 
-get 'employers/new' => 'employers#new', as: :new
+get 'paystubs/new' => 'paystubs#new', as: :new
  
-post 'employers/' => 'employers#create'
+post 'paystubs/' => 'paystubs#create'
 
-get 'employers/:id' => 'employers#show', as: :employer
+get 'paystubs/:id' => 'paystubs#show', as: :paystub
 
-get 'employers/:id/edit' => 'employers#edit', as: :edit
+get 'paystubs/:id/edit' => 'paystubs#edit', as: :edit
 
-patch 'employers/:id' => 'employers#update'
+patch 'paystubs/:id' => 'paystubs#update'
 
-delete 'employers/:id' => 'employers#destroy'
+delete 'paystubs/:id' => 'paystubs#destroy'
 
 
 

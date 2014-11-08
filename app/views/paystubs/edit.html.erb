@@ -1,6 +1,6 @@
    <h1> Edit an entry </h1>
 
-    <%= form_for @employer do |f| %>
+    <%= form_for @paystub do |f| %>
         Income: <%= f.text_field :income %>
         Pay Period: <%= f.text_field :pay_period %>
         Health Insurance: <%= f.text_field :health_insurance %>
@@ -10,7 +10,7 @@
 
     <% end %>
 
-    <%= link_to "Back to the list!", employers_path %>
+    <%= link_to "Back to the list!", paystubs_path %>
 
  	
 		

@@ -6,6 +6,10 @@
 // 	background: black;
 // }
 
+.container{
+	margin-left: 18%;
+}
+
 .field{
 	align: center;
 	font-size: 22px;
@@ -25,4 +29,13 @@ h1{
 #health{
 	font-size:16px;
 	color: green;
+}
+
+.underline {
+    text-decoration:underline;
+    color:red;
+}
+
+.invest {
+	color:red;
 }

@@ -2,6 +2,12 @@ class UsersController < ApplicationController
 	skip_before_filter :authorize
 	def index
 		@user = User.new
+		@paystubs = Paystub.all
+	end
+
+	def show
+		@paystubs = Paystub.all
+		@users = User.all
 	end
 
 	def new

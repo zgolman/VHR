@@ -24,25 +24,25 @@
  <div class="field">
     <%= f.label :investment_strategy%>
    <div id="investment">
-   <%= radio_button_tag(:investment_strategy, "Conservative") %>
-   <%= label_tag(:age_child, "Conservative") %>
-   <%= radio_button_tag(:investment_strategy, "Intermediate") %>
-   <%= label_tag(:age_adult, "Intermediate") %>
-   <%= radio_button_tag(:investment_strategy, "Risky") %>
-   <%= label_tag(:age_adult, "Risky") %>
+   <%= f.radio_button(:investment_strategy, "Conservative") %>
+   <%= f.label(:investment_strategy, "Conservative") %>
+   <%= f.radio_button(:investment_strategy, "Intermediate") %>
+   <%= f.label(:investment_strategy, "Intermediate") %>
+   <%= f.radio_button(:investment_strategy, "Risky") %>
+   <%= f.label(:investment_strategy, "Risky") %>
    </div>
 </div>    
   <div class="field">
     <%= f.label :health_insurance%>
     <div id="health">
-   <%= radio_button_tag(:health_insurance, "$1,000") %>
-   <%= label_tag(:health_insurance, "$1,000") %>
-   <%= radio_button_tag(:health_insurance, "$2,500") %>
-   <%= label_tag(:health_insurance, "$2,500") %>
-    <%= radio_button_tag(:health_insurance, "$5,000") %>
-   <%= label_tag(:health_insurance, "$5,000") %>
-    <%= radio_button_tag(:health_insurance, "$10,000") %>
-   <%= label_tag(:health_insurance, "$10,000") %>
+   <%= f.radio_button(:health_insurance, 1000) %>
+   <%= f.label(:health_insurance, "$1,000") %>
+   <%= f.radio_button(:health_insurance, 2500) %>
+   <%= f.label(:health_insurance, "$2,500") %>
+    <%= f.radio_button(:health_insurance, 5000) %>
+   <%= f.label(:health_insurance, "$5,000") %>
+    <%= f.radio_button(:health_insurance, 10000) %>
+   <%= f.label(:health_insurance, "$10,000") %>
    </div>
   </div> 
 

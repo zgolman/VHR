@@ -15,14 +15,14 @@
 		  <div class="col-md-12">
 			<h1 class="user2">Benefit's History</h1>
 			<ul>
-			<% @employers.each do |e| %>
+			<% @paystubs.each do |e| %>
 			<li> 
 			 Income	<%= e.income  %> 
 			 Pay Period Start Date	<%= e.pay_period1 %> 
 			 Pay Period	End Date <%= e.pay_period2 %> 
 			 
 			</li>
-			<%= link_to "More details!", employer_path(e) %> 
+			<%= link_to "More details!", paystub_path(e) %> 
 	    	 <% end %>
 			</ul>
 		  </div>
