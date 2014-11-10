@@ -23,46 +23,57 @@
 
 .header{
 	background: #8496b4;
-	margin-top: -1.5%;
+	margin-top: -3%;
+	margin-bottom: -4.5%;
+	height: 10%;
+	font-size: 40px;
+	vertical-align: center;
+	color: white;
+	text-shadow: 2px 2px #131317;
+	font-style: italic;
+
 
 }
-
-h5{
-	font-size: 72px;
+h1{
+	font-size: 90px;
 	position: relative;
 	color: white;
 	text-align: center;
+	// background: #8496b4;
 }
 
-h2{
-	font-size: 22px;
-	position: relative;
+.footer {
+	background: #8496b4;
+	margin-top: -3%;
+	margin-bottom: -4.5%;
+	height: 200px;
+	font-size: 40px;
+	vertical-align: center;
 	color: white;
-	text-align: center;
+	text-shadow: 2px 2px #131317;
 	font-style: italic;
 }
 
-.creation{
-	float: left;
-	margin-left: 40%;
-	margin-top: 6%;
+h2{
+	font-size: 72px;
+	position: relative;
+	font-color: white;
+	text-align: center;
+	font-style: italic;
+	padding: 4%;
 }
 
 
-.signin{
-	float: right;
-	margin-right: 40%;
-	margin-top: 6%;
-}
+
 
 .bottom{
 	text-align:center;
 	font: 26px;
-	margin-bottom: 5%;
+	margin-bottom: 2%;
 	font-style: bold;
 }
 
 
-a:link {
-    color: red;
-}
+// a:link {
+//     color: red;
+// }

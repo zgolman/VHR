@@ -22,8 +22,8 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
  <div class="field">
-    <%= f.label :investment_strategy%>
-   <div id="investment">
+    <%= f.label :investment_strategy%> (select your risk)
+   <div id="investment"> 
    <%= f.radio_button(:investment_strategy, "Conservative") %>
    <%= f.label(:investment_strategy, "Conservative") %>
    <%= f.radio_button(:investment_strategy, "Intermediate") %>
@@ -33,7 +33,7 @@
    </div>
 </div>    
   <div class="field">
-    <%= f.label :health_insurance%>
+    <%= f.label :health_insurance%> (choose a deductible)
     <div id="health">
    <%= f.radio_button(:health_insurance, 1000) %>
    <%= f.label(:health_insurance, "$1,000") %>

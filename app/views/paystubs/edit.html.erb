@@ -1,18 +1,21 @@
    <h1> Edit an entry </h1>
 
     <%= form_for @paystub do |f| %>
+        <%= hidden_field_tag :user_id, current_user.id%>
         Income: <%= f.text_field :income %>
-        Pay Period: <%= f.text_field :pay_period %>
-        Health Insurance: <%= f.text_field :health_insurance %>
-        Benefits: <%= f.text_field :benefits %>
+        Pay Period Start Date: <%= f.date_field :pay_period1 %>
+        Pay Period End Date: <%= f.date_field :pay_period2 %>
 
         <%= f.submit "Edit this entry!" %>
 
     <% end %>
 
-    <%= link_to "Back to the list!", paystubs_path %>
+    <%= link_to "Back to the list!", user_path %>
 
  	
 		
 			
+   
     
+
+      

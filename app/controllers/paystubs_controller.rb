@@ -2,6 +2,7 @@ class PaystubsController < ApplicationController
 skip_before_filter :authorize
   def index
     @paystubs = Paystub.all
+
   end
 
   def new
@@ -31,35 +32,47 @@ skip_before_filter :authorize
   end
 
 
-
-
-
-
-
-
   def show
     @paystub = Paystub.find(params[:id])
   end
 
   def edit
-    @paystub = Paystub.find(params[:id])
+    @paystub = current_user.paystubs.find(params[:id])
+    # @paystub = Paystub.find(params[:id])
+    # current_user = User.find(params[:paystub])
+    # @paystub = Paystub.current_user.find(params[:id])
+
+    # # raise User.find(params[:id])
+    # # @user = User.find(params[:id])
+    # # @paystub = @user.Paystub.find(params[:id])
+    # @users = User.all
+    # @paystub = Paystub.find(params[:id])
+    # @friends = current_user.paystubs.order('id')
+    # # gives me a "friendship" to enter into friendship delete forms so it routes
+    # # properly, never changes since the delete controller only worries about
+    # # the user_id
+    # # @fake_friendship = Friendship.find(51)
   end
 
-  def destroy
+def update
         @paystub = Paystub.find(params[:id])
+        if @paystub.update_attributes(params.require(:paystub).permit(:pay_period, :income, :health_insurance, :benefits))
+            redirect_to user_path
+        else
+            render 'edit'
+        end
+  end
+
+
+
+  def destroy
+        @paystub = User.find(params[:_id])
         @paystub.destroy
         redirect_to paystubs_path
   end
 
  
-  def update
-        @paystub = Paystub.find(params[:id])
-        if @paystub.update_attributes(params.require(:paystub).permit(:pay_period, :income, :health_insurance, :benefits))
-            redirect_to paystubs_path
-        else
-            render 'edit'
-        end
-  end
+  
 
   
 
