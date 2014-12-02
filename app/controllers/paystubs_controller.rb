@@ -80,6 +80,7 @@ def update
 
 end
 
+
 # field :pay_period, type: Date
 #   field :income, type: Decimal
 #   field :health_insurance, type: Mongoid::Boolean
