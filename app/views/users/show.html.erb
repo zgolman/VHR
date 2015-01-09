@@ -5,7 +5,7 @@
 	<div class ="meat">
     <% @paystubs.each do |paystub|%>
 		<% if current_user.id == paystub.user_id %>
-		<div id= "title">Below is the payment information from <%= paystub.pay_period1 %> to <%= paystub.pay_period2 %></div> 
+		<div id= "title">Date: <%= paystub.pay_period1 %> to <%= paystub.pay_period2 %></div> 
 		<strong>Income:</strong>$<%=paystub.income%>0<br>
 			<div class = "invest"><% @users.each do |user|%>
 				<% if current_user.id == user.id %>

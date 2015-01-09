@@ -31,14 +31,16 @@
 	color: white;
 	text-shadow: 2px 2px #131317;
 	font-style: italic;
-
-
+	font-family: "Neuzit Heavy", sans-serif;
 }
+
+
 h1{
 	font-size: 90px;
 	position: relative;
 	color: white;
 	text-align: center;
+
 	// background: #8496b4;
 }
 
@@ -73,7 +75,4 @@ h2{
 	font-style: bold;
 }
 
-
-// a:link {
-//     color: red;
-// }
+a {text-decoration: none;}

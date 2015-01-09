@@ -85,5 +85,3 @@ end
 #   field :income, type: Decimal
 #   field :health_insurance, type: Mongoid::Boolean
 #   field :benefits, type: Mongoid::Boolean
-
-

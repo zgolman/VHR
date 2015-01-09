@@ -10,13 +10,13 @@
 </head>
 <body>
 
-<div id="container">
-    <div id="user_header">
+<!-- <div id="container">
+ -->    <div id="user_header">
       <% if current_user %>
         Logged in as <%= current_user.email %>
-        <a><%= link_to "Log Out", logout_path %><a/> |
-        <a><%= link_to "Add Paystub", new_path(:user_id) %><a/> |
-        <a><%= link_to "Account Activity", user_path(:user_id) %><a/> 
+        <%= link_to "Log Out", logout_path %> |
+        <%= link_to "Add Paystub", new_path(:user_id) %> |
+        <%= link_to "Account Activity", user_path(:user_id) %>
        
       <% else %>
         <%= link_to "Sign Up", signup_path %> or
@@ -26,7 +26,7 @@
     <% flash.each do |name,msg| %>
       <%= content_tag :div, msg, id: "flash_#{name}" %>
     <% end %>
-</div>
+<!-- </div> -->
 <%= yield %>
 
 </body>
