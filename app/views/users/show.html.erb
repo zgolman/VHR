@@ -1,81 +1,91 @@
-<div class = "yoo">
-<div class = "yo">
 <h1> <%= current_user.first_name %> <%= current_user.last_name %> </h1>
-</div>
-	<div class ="meat">
-    <% @paystubs.each do |paystub|%>
-		<% if current_user.id == paystub.user_id %>
-		<div id= "title">Date: <%= paystub.pay_period1 %> to <%= paystub.pay_period2 %></div> 
-		<strong>Income:</strong>$<%=paystub.income%>0<br>
-			<div class = "invest"><% @users.each do |user|%>
-				<% if current_user.id == user.id %>
-					
-					<strong>401K Contribution:</strong><% if user.investment_strategy == "Conservative"%>
-						$<%=-(paystub.income)*0.1 %>0
-						<% elsif user.investment_strategy == "Intermediate"%>
-						$<%=-(paystub.income)*0.15 %>0 
-						<% elsif user.investment_strategy == "Risky"%>
-						$<%=-(paystub.income)*0.2 %>0 
-					<% end %>
-				
-			
-					<br>
-				    <strong>Health Insurance:</strong>
-				   <!-- <div class = "underline"> -->
-				        <% if user.health_insurance == 1000%>
-						$<%=-(paystub.income)*0.1 %>0
-						<% elsif user.health_insurance  == 2500%>
-						$<%=-(paystub.income)*0.15 %>0 
-						<% elsif user.health_insurance  == 5000%>
-						$<%=-(paystub.income)*0.2 %>0 
-						<% elsif user.health_insurance  == 10000%>
-						$<%=-(paystub.income)*0.25 %>0 
+    <table border="1" style="width:100%">
+	    <tr>
+		    <th>Date</th>
+		    <th>Paystub</th>
+		    <th>401K</th>		
+		    <th>Health Insurance</th>
+		    <th>Remaining Income</th>
+		    <th></th>
+		    <th></th>
+	  	</tr>        
+        <tr>
+	    	
+	    	<% @paystubs.each do |paystub|%>
+			<% if current_user.id == paystub.user_id %>
+			<td>
+			<%= paystub.pay_period1.strftime("%m/%d/%Y")%> to <%= paystub.pay_period2.strftime("%m/%d/%Y") %>
+			</td>
+			<td>
+			$<%=paystub.income%>0
+		    </td>
+			    
+		    <% @users.each do |user|%>
+			<% if current_user.id == user.id %>
+			  
+		  	<td class = "red">
+			<% if user.investment_strategy == "Conservative"%>
+				($<%=(paystub.income)*0.1 %>0)
+				<% elsif user.investment_strategy == "Intermediate"%>
+				($<%=(paystub.income)*0.15 %>0)
+				<% elsif user.investment_strategy == "Risky"%>
+				($<%=(paystub.income)*0.2 %>0 )
+			<% end %>
+    	    </td>
+		   
+		   <td class ="red">
+		        <% if user.health_insurance == 1000%>
+				($<%=(paystub.income)*0.1 %>0)
+				<% elsif user.health_insurance  == 2500%>
+				($<%=(paystub.income)*0.15 %>0) 
+				<% elsif user.health_insurance  == 5000%>
+				($<%=(paystub.income)*0.2 %>0) 
+				<% elsif user.health_insurance  == 10000%>
+				($<%=(paystub.income)*0.25 %>0) 
 
-					<% end %>
-				</div>
-					
-				<strong>Remaining Income:</strong> <% if user.investment_strategy == "Conservative" && user.health_insurance == 1000 %>
-						$<%=paystub.income - (paystub.income* (0.1+ 0.1)) %>0
-						<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 2500 %>
-						$<%=paystub.income - (paystub.income)* (0.1+ 0.15) %>0
-						<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 5000 %>
-						$<%=paystub.income - (paystub.income)* (0.1+ 0.2) %>0
-						<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 10000 %>
-						$<%=paystub.income - (paystub.income)* (0.1+ 0.25) %>0
-						<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 1000 %>
-						$<%=paystub.income - (paystub.income)* (0.15+ 0.15) %>0 
-						<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 2500 %>
-						$<%=paystub.income - (paystub.income)* (0.15+ 0.15) %>0 
-						<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 5000 %>
-						$<%=paystub.income - (paystub.income)* (0.15+ 0.2) %>0 
-						<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 10000 %>
-						$<%=paystub.income - (paystub.income)* (0.15+ 0.25) %>0
-						<% elsif user.investment_strategy == "Risky" && user.health_insurance == 1000 %>
-						$<%=paystub.income - (paystub.income)* (0.2+ 0.15) %>0 
-						<% elsif user.investment_strategy == "Risky" && user.health_insurance == 2500 %>
-						$<%=paystub.income - (paystub.income)* (0.2+ 0.15) %>0 
-						<% elsif user.investment_strategy == "Risky" && user.health_insurance == 5000 %>
-						$<%=paystub.income - (paystub.income)* (0.2+ 0.2) %>0 
-						<% elsif user.investment_strategy == "Risky" && user.health_insurance == 10000 %>
-						$<%=paystub.income - (paystub.income)* (0.2+ 0.25) %>0
-					<% end %><br>
-						<%= link_to "Edit this entry!", edit_path %>
-			    		<%= link_to "Delete this entry!", @paystub, method: :delete, data: { confirm: 'Are you sure you want to delete it?' } %><br>
-						
+			<% end %>
+			</td>
+	
+			<td>
+			 <% if user.investment_strategy == "Conservative" && user.health_insurance == 1000 %>
+					$<%=paystub.income - (paystub.income* (0.1+ 0.1)) %>0
+					<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 2500 %>
+					$<%=paystub.income - (paystub.income)* (0.1+ 0.15) %>0
+					<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 5000 %>
+					$<%=paystub.income - (paystub.income)* (0.1+ 0.2) %>0
+					<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 10000 %>
+					$<%=paystub.income - (paystub.income)* (0.1+ 0.25) %>0
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 1000 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 2500 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 5000 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.2) %>0 
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 10000 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.25) %>0
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 1000 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 2500 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 5000 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.2) %>0 
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 10000 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.25) %>0
+				<% end %>
+			    </td>
 
+				<td>
+					<%= link_to "Edit", edit_path %> or
+		    		<%= link_to "Delete", @paystub, method: :delete, data: { confirm: 'Are you sure you want to delete it?' } %>	
+	    		</td>	
 				<% end %>
 			<% end %>
 		<% end %>
-	<br>
-	
+
+	</tr>
 
 	<% end %>
+	</table>
 	
-	</div>
   </div>
-	  
-    <%#= link_to "Edit this entry!", edit_path(@paystub) %>
-    <%#= link_to "Delete this entry!",  method: :delete, data: { confirm: 'Are you sure you want to delete it?' } %>
-  <!--   <%= link_to "Back to the list!", paystubs_path %>
- -->
-
+	

@@ -20,7 +20,9 @@
        
       <% else %>
         <%= link_to "Sign Up", signup_path %> or
-        <%= link_to "Log In", login_path %>
+        
+        <%= link_to "Log In", login_path, :method => :get, class: "login-button"%>
+   
     </div>
     <% end %>
     <% flash.each do |name,msg| %>
@@ -31,3 +33,4 @@
 
 </body>
 </html>
+

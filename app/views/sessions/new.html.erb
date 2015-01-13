@@ -1,6 +1,11 @@
-<h1>Log In</h1>
+<!-- <h1>Log In</h1> -->
 
-<%= form_tag createlogin_path do %>
+
+<div id="openModal" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close"></a>
+
+<%= form_tag sessions_path do %>
   <div class="field">
     <%= label_tag :email %><br />
     <%= text_field_tag :email, params[:email] %>
@@ -11,3 +16,6 @@
   </div>
   <div class="actions"><%= submit_tag "Log In" %></div>
 <% end %>
+
+
+<!-- createlogin_path -->

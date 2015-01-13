@@ -11,14 +11,6 @@ skip_before_filter :authorize
 
 
 
-  # def create
-  #       @paystub = Paystub.new(params.require(:paystub).permit(:pay_period1, :pay_period2, :income))
-  #       if @paystub.save
-  #           redirect_to user_path(:paystub)
-  #       else
-  #           render 'new'
-  #       end
-  # end
 
   def create
     @id = params[:user_id]

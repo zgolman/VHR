@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :resources
+  resources :sessions
   # resources :users
 
 get 'users/' => 'users#index', as: :current_user
