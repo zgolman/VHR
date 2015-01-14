@@ -3,9 +3,9 @@
 <div class = "new">
     <%= form_for @paystub do |f| %>
     	<%= hidden_field_tag :user_id, current_user.id%>
-        <strong> Income </strong>: <%= f.text_field :income %>
-        Pay Period Start Date: <%= f.date_field :pay_period1 %>
-        Pay Period End Date: <%= f.date_field :pay_period2 %>
+        Income: $<%= f.text_field :income %><br>
+        Pay Period Start Date: <%= f.date_field :pay_period1 %><br>
+        Pay Period End Date: <%= f.date_field :pay_period2 %><br>
 
         <%= f.submit "Add Paystub!" %>
 </div>

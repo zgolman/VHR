@@ -1,18 +1,100 @@
+<div class = "whole-left">
+</div>
+
+<div class = "whole-right">
+</div>
 
 
-<h1> USER NAME </h1>
+<div class = "paystub_container">
+<h1> <%= current_user.first_name %> <%= current_user.last_name %> </h1>
+    <table border="1" style="width:100%">
+	    <tr>
+		    <th class = "date">Date</th>
+		    <th>Paystub</th>
+		    <th>401K</th>		
+		    <th>Insurance</th>
+		    <th>Remaining</th>
+		    <th></th>
+		    <th></th>
+	  	</tr>        
+        <tr>
+	    	
+	    	<% @paystubs.each do |paystub|%>
+			<% if current_user.id == paystub.user_id %>
+			<td class = "date">
+			<%= paystub.pay_period1.strftime("%m/%d/%Y")%> to <%= paystub.pay_period2.strftime("%m/%d/%Y")%>
+			</td>
+			<td>
+			$<%=paystub.income.round(2)%>0
+		    </td>
+			    
+		    <% @users.each do |user|%>
+			<% if current_user.id == user.id %>
+			  
+		  	<td class = "red">
+			<% if user.investment_strategy == "Conservative"%>
+				($<%=((paystub.income)*(0.1)).round(2) %>0)
+				<% elsif user.investment_strategy == "Intermediate"%>
+				($<%=((paystub.income)*(0.15)).round(2) %>0)
+				<% elsif user.investment_strategy == "Risky"%>
+				($<%=((paystub.income)*(0.2)).round(2) %>0)
+			<% end %>
+    	    </td>
+		   
+		   <td class ="red">
+		        <% if user.health_insurance == 1000%>
+				($<%=((paystub.income)*(0.1)).round(2) %>0)
+				<% elsif user.health_insurance  == 2500%>
+				($<%=((paystub.income)*(0.15)).round(2) %>0)
+				<% elsif user.health_insurance  == 5000%>
+				($<%=((paystub.income)*(0.2)).round(2) %>0)
+				<% elsif user.health_insurance  == 10000%>
+				($<%=((paystub.income)*(0.25)).round(2) %>0) 
 
-<p> Below is the payment information for <%= @paystub.pay_period %>
+			<% end %>
+			</td>
+	
+			<td>
+			 <% if user.investment_strategy == "Conservative" && user.health_insurance == 1000 %>
+					$<%=paystub.income - (paystub.income* (0.1+ 0.1)) %>0
+					<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 2500 %>
+					$<%=paystub.income - (paystub.income)* (0.1+ 0.15) %>0
+					<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 5000 %>
+					$<%=paystub.income - (paystub.income)* (0.1+ 0.2) %>0
+					<% elsif user.investment_strategy == "Conservative" && user.health_insurance == 10000 %>
+					$<%=paystub.income - (paystub.income)* (0.1+ 0.25) %>0
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 1000 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 2500 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 5000 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.2) %>0 
+					<% elsif user.investment_strategy == "Intermediate" && user.health_insurance == 10000 %>
+					$<%=paystub.income - (paystub.income)* (0.15+ 0.25) %>0
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 1000 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 2500 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.15) %>0 
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 5000 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.2) %>0 
+					<% elsif user.investment_strategy == "Risky" && user.health_insurance == 10000 %>
+					$<%=paystub.income - (paystub.income)* (0.2+ 0.25) %>0
+				<% end %>
+			    </td>
 
-    Income: <%= @paystub.pay_period %>
-    Selected Health Insurance:  <%= @paystub.health_insurance %>
-    Selected Benefits: <%= @paystub.benefits %>
-	  
+				<td>
+					<%= link_to "Edit", edit_path %> or
+		    		<%= link_to "Delete", @paystub, method: :delete, data: { confirm: 'Are you sure you want to delete it?' } %>	
+	    		</td>	
+				<% end %>
+			<% end %>
+		<% end %>
 
+	</tr>
 
-
-    <%= link_to "Edit this entry!", edit_path(@paystub) %>
-    <%= link_to "Delete this entry!", @paystub, method: :delete, data: { confirm: 'Are you sure you want to delete it?' } %>
-    <%= link_to "Back to the list!", paystubs_path %>
-
+	<% end %>
+	</table>
+	
+  </div>
+	
 

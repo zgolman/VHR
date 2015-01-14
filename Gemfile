@@ -13,6 +13,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'rails_12factor'
 
+gem 'chartkick'
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'mongoid', github: 'mongoid/mongoid'

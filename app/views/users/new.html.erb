@@ -1,3 +1,13 @@
+<div class="field1">
+<%= form_tag createlogin_path do %>
+    
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    <%= submit_tag "Log In" %> 
+  </div>
+  <% end %>
 <div class="container">
 <h1>Complete form below to ENJOY THE BENEFITS!</h1>
 
@@ -14,51 +24,52 @@
       </ul>
     </div>
   <% end %>
+    <div class ="form">
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+       <div class="field">
+          <%= f.label :investment_strategy%> (select your risk)
+         <div id="investment"> 
+         <%= f.radio_button(:investment_strategy, "Conservative") %>
+         <%= f.label(:investment_strategy, "Conservative") %>
+         <%= f.radio_button(:investment_strategy, "Intermediate") %>
+         <%= f.label(:investment_strategy, "Intermediate") %>
+         <%= f.radio_button(:investment_strategy, "Risky") %>
+         <%= f.label(:investment_strategy, "Risky") %>
+         </div>
+      </div>    
+        <div class="field">
+          <%= f.label :health_insurance%> (choose a deductible)
+          <div id="health">
+         <%= f.radio_button(:health_insurance, 1000) %>
+         <%= f.label(:health_insurance, "$1,000") %>
+         <%= f.radio_button(:health_insurance, 2500) %>
+         <%= f.label(:health_insurance, "$2,500") %>
+          <%= f.radio_button(:health_insurance, 5000) %>
+         <%= f.label(:health_insurance, "$5,000") %>
+          <%= f.radio_button(:health_insurance, 10000) %>
+         <%= f.label(:health_insurance, "$10,000") %>
+         </div>
+        </div> 
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
- <div class="field">
-    <%= f.label :investment_strategy%> (select your risk)
-   <div id="investment"> 
-   <%= f.radio_button(:investment_strategy, "Conservative") %>
-   <%= f.label(:investment_strategy, "Conservative") %>
-   <%= f.radio_button(:investment_strategy, "Intermediate") %>
-   <%= f.label(:investment_strategy, "Intermediate") %>
-   <%= f.radio_button(:investment_strategy, "Risky") %>
-   <%= f.label(:investment_strategy, "Risky") %>
-   </div>
-</div>    
-  <div class="field">
-    <%= f.label :health_insurance%> (choose a deductible)
-    <div id="health">
-   <%= f.radio_button(:health_insurance, 1000) %>
-   <%= f.label(:health_insurance, "$1,000") %>
-   <%= f.radio_button(:health_insurance, 2500) %>
-   <%= f.label(:health_insurance, "$2,500") %>
-    <%= f.radio_button(:health_insurance, 5000) %>
-   <%= f.label(:health_insurance, "$5,000") %>
-    <%= f.radio_button(:health_insurance, 10000) %>
-   <%= f.label(:health_insurance, "$10,000") %>
-   </div>
-  </div> 
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions"><%= f.submit "Sign Up" %></div>
-<% end %>
+        <div class="actions"><%= f.submit "Sign Up" %></div>
+      <% end %>
+    </form>  
 </div>

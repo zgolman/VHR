@@ -1,23 +1,30 @@
+<div class = "whole-left">
+</div>
+
+<div class = "whole-right">
+</div>
+
+
+<div class = "paystub_container">
 <h1> <%= current_user.first_name %> <%= current_user.last_name %> </h1>
     <table border="1" style="width:100%">
 	    <tr>
-		    <th>Date</th>
+		    <th class = "date">Date</th>
 		    <th>Paystub</th>
 		    <th>401K</th>		
-		    <th>Health Insurance</th>
-		    <th>Remaining Income</th>
-		    <th></th>
-		    <th></th>
+		    <th>Insurance</th>
+		    <th>Remaining</th>
+		   
 	  	</tr>        
         <tr>
 	    	
 	    	<% @paystubs.each do |paystub|%>
 			<% if current_user.id == paystub.user_id %>
-			<td>
-			<%= paystub.pay_period1.strftime("%m/%d/%Y")%> to <%= paystub.pay_period2.strftime("%m/%d/%Y") %>
+			<td class = "date">
+			<%= paystub.pay_period1.strftime("%m/%d/%Y")%> to <%= paystub.pay_period2.strftime("%m/%d/%Y")%>
 			</td>
 			<td>
-			$<%=paystub.income%>0
+			$<%=paystub.income.round(2)%>0
 		    </td>
 			    
 		    <% @users.each do |user|%>
@@ -25,23 +32,23 @@
 			  
 		  	<td class = "red">
 			<% if user.investment_strategy == "Conservative"%>
-				($<%=(paystub.income)*0.1 %>0)
+				($<%=((paystub.income)*(0.1)).round(2) %>0)
 				<% elsif user.investment_strategy == "Intermediate"%>
-				($<%=(paystub.income)*0.15 %>0)
+				($<%=((paystub.income)*(0.15)).round(2) %>0)
 				<% elsif user.investment_strategy == "Risky"%>
-				($<%=(paystub.income)*0.2 %>0 )
+				($<%=((paystub.income)*(0.2)).round(2) %>0)
 			<% end %>
     	    </td>
 		   
 		   <td class ="red">
 		        <% if user.health_insurance == 1000%>
-				($<%=(paystub.income)*0.1 %>0)
+				($<%=((paystub.income)*(0.1)).round(2) %>0)
 				<% elsif user.health_insurance  == 2500%>
-				($<%=(paystub.income)*0.15 %>0) 
+				($<%=((paystub.income)*(0.15)).round(2) %>0)
 				<% elsif user.health_insurance  == 5000%>
-				($<%=(paystub.income)*0.2 %>0) 
+				($<%=((paystub.income)*(0.2)).round(2) %>0)
 				<% elsif user.health_insurance  == 10000%>
-				($<%=(paystub.income)*0.25 %>0) 
+				($<%=((paystub.income)*(0.25)).round(2) %>0) 
 
 			<% end %>
 			</td>
@@ -74,10 +81,7 @@
 				<% end %>
 			    </td>
 
-				<td>
-					<%= link_to "Edit", edit_path %> or
-		    		<%= link_to "Delete", @paystub, method: :delete, data: { confirm: 'Are you sure you want to delete it?' } %>	
-	    		</td>	
+					
 				<% end %>
 			<% end %>
 		<% end %>
@@ -86,6 +90,8 @@
 
 	<% end %>
 	</table>
+
+	
 	
   </div>
 	

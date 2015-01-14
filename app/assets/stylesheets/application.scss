@@ -15,6 +15,14 @@
  */
  @import 'bootstrap';
 
+ 
+.field1 {
+  float: right;
+  color: blue;
+  font-size: 16px;
+}
+
+
 
 #user_header {
 	font-size: 24px;
@@ -65,10 +73,6 @@ li {
 
 li:hover {
 } 
-
-
-
-
 
 
 
@@ -159,6 +163,30 @@ th {
 	color:red;
 }
 
+.date {
+	text-align: justify;
+}
+
+.paystub_container{
+	width: 80%;
+	max-width: none !important;
+	margin: 0 auto;
+	
+}
+
+.whole-left{
+	background-color: #222222;
+	width:20%;
+	float: left;
+	margin: 0 auto;
+}
+
+.whole-right{
+	background-color: #222222;
+	width:20%;
+	float: right;
+	margin: 0 auto;
+}
 
 
 

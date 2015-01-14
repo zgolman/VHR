@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  
 </head>
 <body>
 
@@ -19,18 +20,18 @@
         <%= link_to "Account Activity", user_path(:user_id) %>
        
       <% else %>
-        <%= link_to "Sign Up", signup_path %> or
-        
-        <%= link_to "Log In", login_path, :method => :get, class: "login-button"%>
+        <%= link_to "Sign Up", signup_path %> 
+         <% end %>
+
+     
+    
    
-    </div>
-    <% end %>
-    <% flash.each do |name,msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
+   
 <!-- </div> -->
 <%= yield %>
 
 </body>
 </html>
+
+
 

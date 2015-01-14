@@ -5,4 +5,6 @@ class Paystub
   field :income, type: Float
 
   belongs_to :user
+
+  
 end
